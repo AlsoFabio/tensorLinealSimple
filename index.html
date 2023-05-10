@@ -22,23 +22,34 @@ explore the API. -->
 
 
 <html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
-  </head>
-  <body>
-    <h4>Tiny TFJS example<hr/></h4>
-    <div>Cuantas repeticiones</div>
-    <input type="text" id="txtEpocas">
-    
-    <button type="button" onclick="entrenar()">Botoncito</button>
-    <div id="micro-out-div"></div>
 
-    <div>Valor de X a predecir valor de Y</div>
-    <input type="text" id="valorx">
-    <button type="button" onclick="predecir()">Predecir</button>
-    <div id="div-resultado"></div>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+  <!-- Import tfjs-vis -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
+
+  <!-- Import the main script file -->
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <h4>Tiny TFJS example
+    <hr />
+  </h4>
+  <div>Cuantas repeticiones</div>
+  <input type="text" id="txtEpocas" style="width: 50;">
+
+  <button type="button" onclick="entrenar()">Botoncito</button>
+  <div id="micro-out-div"></div>
+
+  <div>Valor de X a predecir valor de Y</div>
+  <input type="text" id="valorx" style="width: 50;">
+  <button type="button" onclick="predecir()">Predecir</button>
+  <div id="div-resultado"></div>
 
 
-    <script src="./index.js"> </script>
-  </body>
+  <script src="./index.js"> </script>
+</body>
+
 </html>
