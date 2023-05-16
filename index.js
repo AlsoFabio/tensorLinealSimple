@@ -53,9 +53,7 @@ const entrenar = async () => {
   document.getElementById('micro-out-div').innerText = "";
 
   const cantidad = parseInt(document.getElementById('txtEpocas').value)
-  alert(cantidad)
   // Create a simple model.
-
   model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
 
   // Prepare the model for training: Specify the loss and the optimizer.
@@ -69,6 +67,7 @@ const entrenar = async () => {
   if (cantidad) {
     epocs = cantidad
     // Train the model using the data.
+    
     await model.fit(xs, ys, {
       epochs: epocs, callbacks: {
         onEpochEnd: (epoch, logs) => {
@@ -81,39 +80,17 @@ const entrenar = async () => {
     document.getElementById('micro-out-div').innerText = "Termino"
   } else {
     // Train the model using the data.
+    
     await model.fit(xs, ys, { epochs: 250 });
     document.getElementById('micro-out-div').innerText = "Termino"
   }
 }
 
-const predecir = () => {
-  const x = parseInt(document.getElementById('valorx').value);
-  x > 0 ? document.getElementById('div-resultado').innerText =
+const predecir = (valor,divresultado) => {
+  const x = parseInt(document.getElementById(valor).value);
+  x > 0 ? document.getElementById(divresultado).innerText =
     model.predict(tf.tensor2d([x], [1, 1])).dataSync()
     : alert('Introduzca un numero por favor');
 
   console.log("finish");
 }
-
-async function run() {
-  // Load and plot the original input data that we are going to train on.
-  const data = await getData();
-  const values = data.map(d => ({
-    x: d.horsepower,
-    y: d.mpg,
-  }));
-
-  tfvis.render.scatterplot(
-    {name: 'Horsepower v MPG'},
-    {values},
-    {
-      xLabel: 'Horsepower',
-      yLabel: 'MPG',
-      height: 300
-    }
-  );
-
-  // More code will be added below
-}
-
-document.addEventListener('DOMContentLoaded', run);

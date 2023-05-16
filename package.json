@@ -1,7 +1,7 @@
 {
   "name": "tfjs-examples-micro",
   "version": "0.1.0",
-  "description": "",
+  "description": "This minimal example loads tfjs from a CDN, builds and trains a minimal model,\r and uses it to predict.  Edit `index.js` and load `index.html` in your\r browser to test small snippets.",
   "main": "index.js",
   "license": "Apache-2.0",
   "private": true,
@@ -10,7 +10,8 @@
   },
   "scripts": {
     "watch": "npm run build && node_modules/http-server/bin/http-server dist -p 1234 ",
-    "build": "mkdir -p dist/ && cp index.html dist/ && cp index.js dist/"
+    "build": "mkdir -p dist/ && cp index.html dist/ && cp index.js dist/",
+    "dev": "node index.js"
   },
   "devDependencies": {
     "clang-format": "^1.8.0",
@@ -18,5 +19,10 @@
   },
   "resolutions": {
     "follow-redirects": "1.14.8"
-  }
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.5.0",
+    "express": "^4.18.2"
+  },
+  "author": ""
 }
